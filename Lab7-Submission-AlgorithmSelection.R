@@ -208,3 +208,30 @@ itemFrequencyPlot(trans, topN = 10, type = "relative",
                   main = "Relative Item Frequency Plot",
                   horiz = TRUE,
                   mai = c(2, 2, 2, 2))
+
+# Train a random forest model on the training data
+model <- randomForest(Disease ~ ., data = train)
+
+# Use the trained model to make predictions on the test data
+predictions <- predict(model, test)
+
+# Calculate RMSE
+rmse <- sqrt(mean((test$Disease - predictions)^2))
+
+# Print RMSE
+print(paste("RMSE:", rmse))
+
+# Calculate SST
+sst <- sum((test$Disease - mean(test$Disease))^2)
+
+# Calculate SSR
+ssr <- sum((predictions - mean(test$Disease))^2)
+
+# Print SST and SSR
+print(paste("SST:", sst))
+print(paste("SSR:", ssr))
+# Calculate MAE
+mae <- mean(abs(test$Disease - predictions))
+
+# Print MAE
+print(paste("MAE:", mae))
