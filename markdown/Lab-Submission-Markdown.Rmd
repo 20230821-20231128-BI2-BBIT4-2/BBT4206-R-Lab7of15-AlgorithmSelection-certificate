@@ -1,0 +1,15 @@
+---
+title: "Business Intelligence Project"
+author: "Nelson Kamau and Alika Kayembe"
+date: "29/10/2023"
+output:
+  github_document: 
+    toc: yes
+    toc_depth: 4
+    fig_width: 6
+    fig_height: 4
+    df_print: default
+editor_options:
+  chunk_output_type: console
+---
+
